@@ -1,0 +1,5 @@
+venv/
+.idea/
+__pycache__/
+pics/
+db.sqlite3

@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+{% block title %}Данные по коту {{ cat.nick }} {% endblock %}
+{% block main %}
+    <article id="main">
+        <img class="large" src="{{ cat.photo.url }}" alt="Кот {{ cat.nick }}">
+        <ul>
+            <li>
+                Имя: {{ cat.nick }}
+            </li>
+            <li>
+                Владелец: {{ cat.owner_name }}
+            </li>
+            <li>
+                Порода: {{ cat.breed }}
+            </li>
+            <li>
+                Дата публикации: {{ cat.created|date:"d E Y" }}
+            </li>
+            <li>
+                О коте: {{ cat.info }}
+            </li>
+        </ul>
+    </article>
+{% endblock %}

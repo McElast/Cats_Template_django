@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% block title %}Последние обновления на сайте{% endblock %}
+{% block main %}
+    {% for cat in all_cats %}
+        <article id="main">
+            <img src="{{ cat.photo.url }}" alt="Кот {{ cat.nick }}">
+            <ul>
+                <li>
+                    Имя: {{ cat.nick }}
+                </li>
+                <li>
+                    Порода: {{ cat.breed }}
+                </li>
+                <li>
+                    Дата публикации: {{ cat.created|date:"d E Y" }}
+                </li>
+            </ul>
+            <p><a href="{% url 'cats:cat' cat.slug %}">Подробнее...</a></p>
+        </article>
+        {% if not forloop.last %}<hr>{% endif %}
+    {% endfor %}
+{% endblock %}
